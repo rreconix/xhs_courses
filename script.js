@@ -48,7 +48,6 @@ function createBranch(courses) {
 	}
 }
 
-
 function returnToMainHeaders() {
 	createTree(courses)
 }
@@ -57,7 +56,7 @@ function highlightNodePath(node) {
 	if (node.classList.contains("highlighted")) return
 	const parentATag = node.parentNode.parentNode.parentNode.children[0] || false
 	node.classList.add("highlighted")
-	
+
 	if (parentATag && parentATag.tagName === "A") {
 		highlightNodePath(parentATag)
 	} else {
@@ -107,25 +106,24 @@ function createBranchForMainHeaders(e, header) {
 }
 
 function createXaverianHeader() {
-	const li = document.createElement("li")
-
-	const a = document.createElement("a")
-	a.textContent = "Xaverian"
+	const heading = createBranch([
+		{
+			name: courses.name
+		}
+	])
 
 	const ol = document.createElement("ol")
 	ol.style.width = "100%"
+	heading.querySelector("ol li").appendChild(ol)
 
-	li.appendChild(a)
-	li.appendChild(ol)
-
-	return li
+	return heading
 }
 
 function createTree(courses) {
 	tree.innerHTML = ""
-	const ol = document.createElement("ol")
-	tree.appendChild(ol)
-	ol.appendChild(createXaverianHeader())
+	tree.appendChild(
+		createXaverianHeader()
+	)
 
 	const mainHeadersContainer = tree.querySelector("ol li ol")
 
@@ -135,7 +133,9 @@ function createTree(courses) {
 
 		const a = document.createElement("a")
 		a.textContent = main_header.name
-		a.addEventListener("click", (e) => createBranchForMainHeaders(e, main_header))
+		a.addEventListener("click", (e) =>
+			createBranchForMainHeaders(e, main_header)
+		)
 		a.className = "main-header"
 
 		li.appendChild(a)

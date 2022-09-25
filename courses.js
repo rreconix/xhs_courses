@@ -1,4 +1,5 @@
 export const courses = {
+	name: "Xaverian",
 	nestedCourses: [
 		{
 			name: "Algebra 1",
@@ -50,62 +51,62 @@ export const courses = {
 									name: "test4",
 								},
 								{
-									name: "test5"
-								}
+									name: "test5",
+								},
 							],
 						},
 						{
-							name: "test6"
-						}
+							name: "test6",
+						},
 					],
 				},
 				{
 					name: "whattt",
 					nestedCourses: [
 						{
-							name: "twht"
-						}
-					]
+							name: "twht",
+						},
+					],
 				},
 				{
 					name: "Hi",
 					nestedCourses: [
 						{
-							name: "Statistics"
+							name: "Statistics",
 						},
 						{
 							name: "Brother",
 							nestedCourses: [
 								{
-									name: "Dog"
-								}
-							]
-						}
-					]
-				}
+									name: "Dog",
+								},
+							],
+						},
+					],
+				},
 			],
 		},
 		{
-			name: 'idk'
+			name: "idk",
 		},
 		{
 			name: "asdasd",
 			gradeLevel: 9,
 			nestedCourses: [
 				{
-					name: "test8"
+					name: "test8",
 				},
 				{
 					name: "test9",
 					nestedCourses: [
 						{
-							name: "asdasdasfsdf"
+							name: "asdasdasfsdf",
 						},
-						
+
 						{
-							name: "asdfesg"
-						}
-					]
+							name: "asdfesg",
+						},
+					],
 				},
 			],
 		},

@@ -113,7 +113,7 @@ html {
 	padding: 0.33em 0.66em;
 	color: #4d4d4d;
 	border-radius: 6px;
-	transition: background, border-color 0.33ms;
+	transition: background 0.33s, border-color 0.33s;
 }
 
 .branch a,
