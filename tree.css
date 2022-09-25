@@ -1,0 +1,151 @@
+:root {
+	--hovered-border-color: transparent;
+	--hovered-background-color: #30588c;
+	--hovered-color: #fff;
+	--node-path-color: #cacaca;
+}
+
+*::after,
+*::before,
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+.tree {
+	width: 90%;
+	margin: 2rem auto;
+}
+.tree * {
+	margin: 0;
+	padding: 0;
+}
+
+.tree ul,
+.tree ol {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	list-style: none;
+	position: relative;
+	padding-top: 30px;
+}
+.tree ul ul::before,
+.tree ul ol::before,
+.tree ol ul::before,
+.tree ol ol::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 1px solid var(--node-path-color);
+	height: 30px;
+}
+.tree ul:first-child,
+.tree ol:first-child {
+	padding-top: 0;
+}
+.tree li {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-basis: 100%;
+	position: relative;
+	padding: 30px 3px 0 3px;
+}
+.tree li::before,
+.tree li::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 50%;
+	height: 30px;
+	border-top: 1px solid var(--node-path-color);
+}
+.tree li::before {
+	right: 50%;
+}
+.tree li::after {
+	left: 50%;
+	border-left: 1px solid var(--node-path-color);
+}
+.tree li:only-child {
+	padding-top: 0;
+}
+
+.tree .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+}
+
+.tree li:only-child::after,
+.tree li:only-child::before {
+	display: none;
+}
+.tree li:first-child::before,
+.tree li:last-child::after {
+	border: 0 none;
+}
+.tree li:last-child::before {
+	border-radius: 0 5px 0 0;
+	border-right: 1px solid var(--node-path-color);
+}
+.tree li:first-child::after {
+	border-radius: 5px 0 0 0;
+}
+.tree a,
+.tree .back {
+	text-align: center;
+	text-decoration: none;
+	font: clamp(8px, 2vw, 20px) Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+	border: 1px solid var(--node-path-color);
+	padding: 0.33em 0.66em;
+	color: #4d4d4d;
+	border-radius: 6px;
+	transition: background, border-color 0.33ms;
+}
+
+.branch a,
+.back,
+.tree li:not(:only-child) .main-header {
+	cursor: pointer;
+}
+
+/*Colors cchild nodes on hover*/
+/* .tree a:hover,
+.tree a:hover + ul li a,
+.tree a:hover + ol li a {
+	background: var(--hovered-background-color);
+	color: var(--hovered-color);
+	border-color: var(--hovered-border-color);
+} */
+.tree .highlighted,
+.tree li:not(:only-child) .main-header:hover,
+.tree .back:hover {
+	background: var(--hovered-background-color);
+	color: var(--hovered-color);
+	border-color: var(--hovered-border-color);
+}
+
+/* .tree a:hover + ul li::after,
+.tree a:hover + ul li::before,
+.tree a:hover + ul::before,
+.tree a:hover + ul ul::before,
+.tree a:hover + ul ol::before,
+.tree a:hover + ol li::after,
+.tree a:hover + ol li::before,
+.tree a:hover + ol::before,
+.tree a:hover + ol ol::before .tree a:hover + ol ul::before {
+	border-color: #339be5;
+} */
